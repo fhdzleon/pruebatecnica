@@ -26,7 +26,7 @@ const TodoTask = () => {
       isCompleted: false,
     };
 
-    setTasks((prevTasks) => [newTask, ...prevTasks]);
+    setTasks((prevTasks) => [...prevTasks, newTask]);
     setTask("");
     setIdCounter((prevId) => prevId + 1);
   };
@@ -54,9 +54,9 @@ const TodoTask = () => {
   });
 
   return (
-    <div>
+    <div className="flex flex-col space-y-4">
       <div className="flex space-x-4">
-        <form className="space-x-4" onSubmit={handleSubmit}>
+        <form className="space-x-4 " onSubmit={handleSubmit}>
           <input
             className="p-2 text-black rounded-full"
             placeholder="Nueva tarea"
@@ -71,12 +71,13 @@ const TodoTask = () => {
 
         <FilterTodos onFilterChange={handleFilter} />
       </div>
-
-      <TodoItem
-        tasks={filteredTasks}
-        deleteTask={deleteTask}
-        toggleComplete={toggleComplete}
-      />
+      <div>
+        <TodoItem
+          tasks={filteredTasks}
+          deleteTask={deleteTask}
+          toggleComplete={toggleComplete}
+        />
+      </div>
     </div>
   );
 };
