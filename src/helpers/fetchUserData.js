@@ -14,11 +14,14 @@ const fetchUserData = async () => {
     data.forEach((user) => {
       arr.push({ name: user.name, email: user.email });
     });
+
+    alert("Usuarios en consola");
+    console.log(arr);
   } catch (error) {
     console.error(error.message);
   }
 
-  return console.log(arr);
+  return arr;
 };
 
 export default fetchUserData;

@@ -10,7 +10,7 @@ const UsersApi = () => {
         className="p-2 text-black rounded-full bg-slate-300"
         onClick={fetchUserData}
       >
-        Traer usuarios
+        Usuarios ejercicio Fetch
       </button>
     </div>
   );

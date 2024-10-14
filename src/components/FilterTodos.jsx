@@ -10,14 +10,14 @@ const FilterTodos = ({ onFilterChange }) => {
   return (
     <div>
       <select
-        className="text-black"
+        className="p-3 text-black rounded-full"
         name="status"
         id="status"
         onChange={handleFilter}
       >
-        <option value="all">Todas</option>
-        <option value="completados">Completadas</option>
-        <option value="pendientes">Pendientes</option>
+        <option value="all">Mostrar todo</option>
+        <option value="completados">Tareas completadas</option>
+        <option value="pendientes">Tareas pendientes</option>
       </select>
     </div>
   );

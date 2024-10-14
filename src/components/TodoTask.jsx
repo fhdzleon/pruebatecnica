@@ -26,7 +26,7 @@ const TodoTask = () => {
       isCompleted: false,
     };
 
-    setTasks((prevTasks) => [...prevTasks, newTask]);
+    setTasks((prevTasks) => [newTask, ...prevTasks]);
     setTask("");
     setIdCounter((prevId) => prevId + 1);
   };
@@ -34,8 +34,8 @@ const TodoTask = () => {
   const toggleComplete = (id) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
-        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task,
-      ),
+        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
+      )
     );
   };
 
@@ -55,20 +55,22 @@ const TodoTask = () => {
 
   return (
     <div>
-      <form className="space-x-4" onSubmit={handleSubmit}>
-        <input
-          className="p-2 text-black rounded-full"
-          placeholder="Nueva tarea"
-          value={task}
-          onChange={handleChange}
-          type="text"
-        />
-        <button className="p-2 bg-red-600 rounded-full" type="submit">
-          Agregar
-        </button>
-      </form>
+      <div className="flex space-x-4">
+        <form className="space-x-4" onSubmit={handleSubmit}>
+          <input
+            className="p-2 text-black rounded-full"
+            placeholder="Nueva tarea"
+            value={task}
+            onChange={handleChange}
+            type="text"
+          />
+          <button className="p-2 bg-red-600 rounded-full" type="submit">
+            Agregar
+          </button>
+        </form>
 
-      <FilterTodos onFilterChange={handleFilter} />
+        <FilterTodos onFilterChange={handleFilter} />
+      </div>
 
       <TodoItem
         tasks={filteredTasks}
